@@ -1,38 +1,18 @@
 {
-    "title": "Grayscale",
-    "name": "startbootstrap-grayscale",
-    "version": "5.0.8",
+    "title": "csuva",
+    "name": "csuva",
+    "version": "1",
     "scripts": {
         "start": "node_modules/.bin/gulp watch"
     },
-    "description": "A grayscale one page HTML theme for Bootstrap.",
-    "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
-    ],
-    "homepage": "https://startbootstrap.com/template-overviews/grayscale",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-grayscale/issues",
-        "email": "feedback@startbootstrap.com"
-    },
+    "description": "csuva website",
     "license": "MIT",
-    "author": "Start Bootstrap",
-    "contributors": [
-        "David Miller (http://davidmiller.io/)"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-grayscale.git"
-    },
     "dependencies": {
         "@fortawesome/fontawesome-free": "5.9.0",
         "bootstrap": "4.3.1",
         "jquery": "3.4.1",
-        "jquery.easing": "^1.4.1"
+        "jquery.easing": "^1.4.1",
+        "mysql": "^2.17.1"
     },
     "devDependencies": {
         "browser-sync": "2.26.7",
