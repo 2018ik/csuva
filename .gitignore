@@ -1,3 +1,5 @@
 node_modules
-server.js
 mysql
+admin.txt
+.travis.yml
+app.yaml
