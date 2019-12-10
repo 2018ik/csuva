@@ -9,7 +9,7 @@ function signUp(firstname,lastname,email,phone){
         phone,
         moment().format()
         ],
-        function (err, result) {
+        function (err) {
         if (err){
           console.log(err);
           return;
@@ -27,7 +27,7 @@ function getMembers(callback){
 }
 function deleteMemberByDate(dateJoined){
     con.query('DELETE FROM members WHERE date_joined = ?', [dateJoined],
-    function (err, result) {
+    function (err) {
         if (err){
           console.log(err);
           return;
@@ -35,6 +35,26 @@ function deleteMemberByDate(dateJoined){
         console.log("1 record deleted");
     });
 }
+function getWebText(callback){
+  con.query("SELECT * from WebText", function (err, result){
+    if (err){
+      callback(err,null);
+    }
+    callback(null,result)
+  })
+}
+function setBannerText(bannerText){
+  con.query('UPDATE WebText SET BannerText = ?', [bannerText],
+    function (err) {
+        if (err){
+          console.log(err);
+          return;
+        }
+        console.log("1 record changed");
+    });
+}
 module.exports.signUp = signUp;
 module.exports.getMembers = getMembers;
-module.exports.deleteMemberByDate = deleteMemberByDate
+module.exports.deleteMemberByDate = deleteMemberByDate;
+module.exports.getWebText = getWebText;
+module.exports.setBannerText = setBannerText;

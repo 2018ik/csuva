@@ -18,13 +18,18 @@ admin.use('/admin', express.static(__dirname + '/admin'));
 app.set('view engine', 'ejs');
 // viewed at http://localhost:8080
 app.get('/', function(req, res) {
-  res.render(path.join(__dirname + '/index.ejs'));
+  queries.getWebText((err, result) => {
+    if(err){
+      res.render(path.join(__dirname + '/index.ejs'), {table: [{BannerText: null}]});
+    }
+    res.render(path.join(__dirname + '/index.ejs'), {table: result});
+  })
 });
 app.post('/signup', function(req, res){
   queries.signUp(
-    req.body.firstname,
-    req.body.lastname,
-    req.body.email,
+    req.body.firstname.toLowerCase(),
+    req.body.lastname.toLowerCase(),
+    req.body.email.toLowerCase(),
     req.body.phone,
   );
   res.redirect('back');
@@ -41,6 +46,10 @@ admin.get('/', function(req, res) {
 });
 admin.post('/delete', function(req,res){
   queries.deleteMemberByDate(req.body.dateJoined);
+  res.redirect('back');
+});
+admin.post('/changebanner', function(req,res){
+  queries.setBannerText(req.body.bannertext);
   res.redirect('back');
 });
 app.use('/admin', admin)

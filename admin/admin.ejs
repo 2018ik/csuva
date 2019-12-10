@@ -10,14 +10,19 @@
             border-style: solid;
             border-width: 1px;
             border-color: black;
+            background-color: rgb(206, 218, 255);
         }
         td{
             border-style: solid;
             border-width: 1px;
             border-color: black;
+            background-color: rgb(255, 232, 202);
         }
         body{
             font-size: 20px;
+        }
+        form{
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -35,8 +40,8 @@
          <tbody>  
          <% table.forEach(function (row) { %>
             <tr>  
-                <td><%= row.fname %></td>  
-                <td><%= row.lname %></td>
+                <td><%= row.fname[0].toUpperCase() + row.fname.slice(1)%></td>  
+                <td><%= row.lname[0].toUpperCase()  + row.lname.slice(1) %></td>
                 <td><%= row.email %></td>
                 <td><%= row.phone %></td>
                 <td><%= row.date_joined %></td>
@@ -44,14 +49,24 @@
          <% }) %>
          </tbody>
     </table>  
-    <h1 style = "border-bottom-style: solid; border-width: 1px; border-color: black;">fancy tools:</h1>
+    <h1 style = "border-bottom-style: solid; border-width: 1px; border-color: black;">fancy site tools:</h1>
     <form  method="post" action = "admin/delete">
         Delete person (copy paste "date joined" box)<br>
         <input type="text" name="dateJoined" placeholder = "date joined" style = "width: 500px;" ><br>
         <input type="submit" value="Submit">
     </form>
-    <form>
-        Change text under welcome banner (does not work):<br>
+    <form  method="post" action = "admin/delete">
+        Get <select name="info" size="1">
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+          </select>
+        based on name:
+          <br>
+        <input type="text" name="name" placeholder = "full name" style = "width: 500px;" ><br>
+        <input type="submit" value="Submit">
+    </form>
+    <form method = "post" action = "admin/changebanner">
+        Change text under welcome banner:<br>
         <textarea type="text" name="bannertext" style = "width: 500px; height:100px;"></textarea><br>
         <input type="submit" value="Submit">
     </form>
