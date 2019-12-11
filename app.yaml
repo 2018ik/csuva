@@ -2,7 +2,6 @@ env: flex
 runtime: nodejs
 
 handlers:
-
 - url: /css
   static_dir: css
 - url: /js
@@ -11,3 +10,6 @@ handlers:
   static_dir: vendor
 - url: /img
   static_dir: img
+  
+skip_files:
+- ^node_modules/.*$
