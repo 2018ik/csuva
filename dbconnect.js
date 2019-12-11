@@ -1,10 +1,11 @@
 var mysql = require('mysql');
 var fs = require('fs')
-const [host,user,pass] = fs.readFileSync('admin.txt').toString().split("\r\n");
+const info = fs.readFileSync('admin.txt').toString().split(/\r?\n/);
+console.log(info)
 var con = mysql.createConnection({
-    host: host,
-    user:  user,
-    password: pass,
+    host: info[0],
+    user:  info[1],
+    password: info[2],
 });;
 function setupDatabase(){
     con.connect((err) => {
@@ -27,7 +28,7 @@ function getCon(){
 }
 function setupAdmin(){
     var setup = (req,res,next) => {
-    const auth = {login: user, password: pass}
+    const auth = {login: info[1], password: info[2]}
     const b64auth = (req.headers.authorization || '').split(' ')[1] || ''
     const [login, password] = new Buffer.from(b64auth, 'base64').toString().split(':')
     if (login && password && login === auth.login && password === auth.password) {

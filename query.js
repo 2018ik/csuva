@@ -20,9 +20,9 @@ function signUp(firstname,lastname,email,phone){
 function getMembers(callback){
     con.query("SELECT * FROM members", function (err, result) {
         if (err){
-          callback(err, null);
+          return callback(err, null);
         }
-        callback(null, result);
+        return callback(null, result);
     });
 }
 function deleteMemberByDate(dateJoined){
@@ -38,9 +38,9 @@ function deleteMemberByDate(dateJoined){
 function getWebText(callback){
   con.query("SELECT * from WebText", function (err, result){
     if (err){
-      callback(err,null);
+      return callback(err,null);
     }
-    callback(null,result)
+    return callback(null,result)
   })
 }
 function setBannerText(bannerText){
