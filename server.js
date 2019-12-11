@@ -39,9 +39,9 @@ app.post('/signup', function(req, res){
 admin.get('/', function(req, res) {
   queries.getMembers((err, result) => {
     if(err){
-      res.render(path.join(__dirname + '/admin/admin.ejs'), {table: [{fname: null, lname: null, email: null, phone: null, date_joined: null}]});
+      res.render(path.join(__dirname + '/admin.ejs'), {table: [{fname: null, lname: null, email: null, phone: null, date_joined: null}]});
     }
-    res.render(path.join(__dirname + '/admin/admin.ejs'), {table: result});
+    res.render(path.join(__dirname + '/admin.ejs'), {table: result});
   })
 });
 admin.post('/delete', function(req,res){
