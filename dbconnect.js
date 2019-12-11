@@ -17,12 +17,10 @@ if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production
 console.log(config)
 var con = mysql.createConnection(config);
 
-con.connect();
-
 function setupDatabase(){
     con.connect((err) => {
     if(err){
-        console.log('Error connecting to Db');
+        console.log('Error connecting to Db', err);
         return;
     }
     var sql = "USE csuva";

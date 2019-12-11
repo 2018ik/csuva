@@ -1,12 +1,5 @@
 runtime: nodejs
 env: flex
-env_variables:
-  SQL_USER: iankang
-  SQL_PASSWORD: livingwater
-  SQL_DATABASE: csuva
-  INSTANCE_CONNECTION_NAME: csuva-252520:us-east1:csuva
-beta_settings:
-  cloud_sql_instances: csuva-252520:us-east1:csuva
   
 handlers:
 - url: /css
