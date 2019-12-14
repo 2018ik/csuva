@@ -18,6 +18,12 @@
   color: #f8f9fa;
   font-weight: 700;
   padding: .9rem 0;
+  font-size: 4vw;
+}
+@media screen and (min-width: 1200px) {
+  #mainNav .navbar-brand {
+    font-size: 25px;
+  }
 }
 
 #mainNav .navbar-nav .nav-item:hover {
@@ -135,7 +141,7 @@
 }
 
 .btn-primary {
-  background-color: #c28400;
+  background-color: #b16b29;
   color: #f8f9fa;
   border-width: 13px;
 }
